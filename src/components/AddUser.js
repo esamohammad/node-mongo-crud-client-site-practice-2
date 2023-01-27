@@ -6,10 +6,27 @@ const AddUser = () => {
 
    const handleAddUser = event => {
       event.preventDefault();
-    
+      
       console.log(user);
+
+      fetch('http://localhost:5000/users', {
+         method: 'POST',
+         headers: {
+            'content-type': 'application/json'
+         },
+         body: JSON.stringify(user)
+      })
+         .then(res => res.json())
+         .then(data => {
+            if (data.acknowledged) {
+               alert('User added successfully');
+               event.target.reset();
+            }
+         })
+
+
    }
-   
+
    const handleInputBlur = event => {
       const field = event.target.name;
       const value = event.target.value;
@@ -26,7 +43,7 @@ const AddUser = () => {
             <br />
             <input onBlur={handleInputBlur} type="number" name='class' placeholder='Class' required />
             <br />
-            <input onBlur={handleInputBlur} type="number"  name='roll' placeholder='roll' required />
+            <input onBlur={handleInputBlur} type="number" name='roll' placeholder='roll' required />
             <br />
             <input onBlur={handleInputBlur} type="text" name='mobail' placeholder='mobile' required />
             <br />
