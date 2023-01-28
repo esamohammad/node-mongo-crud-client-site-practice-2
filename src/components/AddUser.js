@@ -41,11 +41,9 @@ const AddUser = () => {
          <form onSubmit={handleAddUser}>
             <input onBlur={handleInputBlur} type="text" name='name' placeholder='name' required />
             <br />
-            <input onBlur={handleInputBlur} type="number" name='class' placeholder='Class' required />
-            <br />
-            <input onBlur={handleInputBlur} type="number" name='roll' placeholder='roll' required />
-            <br />
-            <input onBlur={handleInputBlur} type="text" name='mobail' placeholder='mobile' required />
+            
+            
+            <input onBlur={handleInputBlur} type="text" name='address' placeholder='address' required />
             <br />
             <input onBlur={handleInputBlur} type="email" name="email" id="" placeholder='email' required />
             <br />
